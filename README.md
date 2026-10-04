@@ -1,5 +1,9 @@
 # Media Lyrics Card
 
+<p align="center">
+  <img src="preview.png" alt="The lyrics card on an Omarchy desktop, showing Joey Yung's 搜神記 with synced lyrics" width="900">
+</p>
+
 The lyrics media player card from [end-4's dots-hyprland](https://github.com/end-4/dots-hyprland)
 (`illogical-impulse`), ported to the Omarchy shell as a desktop widget.
 
@@ -22,7 +26,7 @@ For local development, point Omarchy at a checkout by copying it into
 `~/.config/omarchy/plugins/io.github.guranex.media-lyrics/` and reloading:
 
 ```bash
-scripts/dev-install        # sync this checkout into the plugin dir and reload
+scripts/dev-sync        # sync this checkout into the plugin dir and reload
 ```
 
 ## Uninstall

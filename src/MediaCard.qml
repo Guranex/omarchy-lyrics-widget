@@ -112,7 +112,12 @@ WidgetBase {
         id: coverArtDownloader
         property string targetFile: root.artUrl
         property string artFilePath: root.artFilePath
-        command: ["bash", "-c", `[ -f ${artFilePath} ] || curl -sSL '${targetFile}' -o '${artFilePath}'`]
+        // An argv vector, never a shell string. The URL comes from whatever is
+        // playing, so it is not something to hand to `bash -c`; passing it as
+        // one argument means a quote or a semicolon in it stays a character.
+        // The file is only ever read back as an image, never executed.
+        command: ["curl", "-sSL", "--fail", "--max-time", "20",
+          "-o", artFilePath, targetFile]
         onExited: { root.downloaded = true }
     }
 
