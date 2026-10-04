@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.guranex.media-lyrics",
+  "name": "Media Lyrics Card",
+  "version": "0.1.0",
+  "author": "Guranex",
+  "license": "GPL-3.0",
+  "repository": "https://github.com/Guranex/Omarchy-Lyrics-Widget",
+  "description": "The end-4 (illogical-impulse) lyrics media player card, ported to the Omarchy shell as a desktop widget: cover art, transport, an expandable synced-lyrics panel, and five sizes, in an Omarchy or a Material 3 style. Ported from end-4/dots-hyprland (GPL-3.0).",
+  "kinds": [
+    "service",
+    "bar-widget"
+  ],
+  "keepLoaded": true,
+  "entryPoints": {
+    "service": "Service.qml",
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Media Lyrics",
+    "description": "A now-playing card with synced lyrics on the desktop, in an Omarchy or Material 3 style.",
+    "category": "Media",
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "desktop": true,
+      "theme": "omarchy",
+      "iconStyle": "auto",
+      "sizeMode": "1x3",
+      "position": "top-right",
+      "marginX": 28,
+      "marginY": 20,
+      "monitor": "",
+      "freeX": 0,
+      "freeY": 0,
+      "preferredPlayer": "",
+      "filterDuplicatePlayers": true,
+      "shadow": true,
+      "locked": false
+    },
+    "schema": [
+      {
+        "key": "desktop",
+        "type": "boolean",
+        "label": "Show the card on the desktop",
+        "description": "Draws the card above the wallpaper and below your windows.",
+        "defaultValue": true
+      },
+      {
+        "key": "theme",
+        "type": "string",
+        "label": "Style",
+        "description": "omarchy follows the active Omarchy theme; material is end-4's Material 3 baseline.",
+        "defaultValue": "omarchy"
+      },
+      {
+        "key": "iconStyle",
+        "type": "string",
+        "label": "Icon font",
+        "description": "auto uses Material Symbols when installed and Nerd Font otherwise.",
+        "defaultValue": "auto"
+      },
+      {
+        "key": "sizeMode",
+        "type": "string",
+        "label": "Card size",
+        "description": "Any of 1x1, 1x2, 2x2, 1x3, 2x3. Drag the corner handle on the card to change it.",
+        "defaultValue": "1x3"
+      },
+      {
+        "key": "position",
+        "type": "string",
+        "label": "Screen position",
+        "description": "Any corner, or free once the card has been dragged by its top-right grip.",
+        "defaultValue": "top-right"
+      },
+      {
+        "key": "freeX",
+        "type": "number",
+        "label": "Free position, X",
+        "description": "The card's left edge in screen pixels, set by dragging.",
+        "defaultValue": 0
+      },
+      {
+        "key": "freeY",
+        "type": "number",
+        "label": "Free position, Y",
+        "description": "The card's top edge in screen pixels, set by dragging.",
+        "defaultValue": 0
+      },
+      {
+        "key": "marginX",
+        "type": "number",
+        "label": "Horizontal screen margin in pixels",
+        "defaultValue": 28
+      },
+      {
+        "key": "marginY",
+        "type": "number",
+        "label": "Vertical screen margin in pixels",
+        "defaultValue": 20
+      },
+      {
+        "key": "monitor",
+        "type": "string",
+        "label": "Limit the card to one monitor",
+        "description": "A connector name such as eDP-1. Leave empty for every monitor.",
+        "defaultValue": ""
+      },
+      {
+        "key": "preferredPlayer",
+        "type": "string",
+        "label": "Preferred media player",
+        "description": "Matched against the player's name, for example 'spotify'. Leave empty to follow whatever is playing.",
+        "defaultValue": ""
+      },
+      {
+        "key": "shadow",
+        "type": "boolean",
+        "label": "Card shadow",
+        "defaultValue": true
+      },
+      {
+        "key": "locked",
+        "type": "boolean",
+        "label": "Lock the card size",
+        "description": "Hides the resize handle so the size cannot be changed by dragging.",
+        "defaultValue": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+# The card and everything it needs. end-4 ships these as `qs.modules.*`; here
+# they are one local module so the ported files resolve their siblings unchanged.
+singleton Appearance 1.0 Appearance.qml
+singleton ColorUtils 1.0 ColorUtils.qml
+singleton Config 1.0 Config.qml
+singleton Directories 1.0 Directories.qml
+singleton Fonts 1.0 Fonts.qml
+singleton Glyphs 1.0 Glyphs.qml
+singleton LyricsService 1.0 LyricsService.qml
+singleton MprisController 1.0 MprisController.qml
+singleton Translation 1.0 Translation.qml
+
+DesktopSurface 1.0 DesktopSurface.qml
+Lyrics 1.0 Lyrics.qml
+MaterialLoadingIndicator 1.0 MaterialLoadingIndicator.qml
+MaterialShape 1.0 MaterialShape.qml
+MaterialShapeWrappedMaterialSymbol 1.0 MaterialShapeWrappedMaterialSymbol.qml
+MaterialSymbol 1.0 MaterialSymbol.qml
+MediaCard 1.0 MediaCard.qml
+MoveHandler 1.0 MoveHandler.qml
+ResizeHandler 1.0 ResizeHandler.qml
+RippleButton 1.0 RippleButton.qml
+StyledImage 1.0 StyledImage.qml
+StyledRectangularShadow 1.0 StyledRectangularShadow.qml
+StyledText 1.0 StyledText.qml
+ThemeMaterial 1.0 ThemeMaterial.qml
+ThemeOmarchy 1.0 ThemeOmarchy.qml
+WidgetBase 1.0 WidgetBase.qml
+WidgetCard 1.0 WidgetCard.qml

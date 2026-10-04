@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Sync this checkout into the Omarchy plugin directory and reload the shell.
+#
+# A QML module's singletons are cached once loaded, so a plain file copy is not
+# enough after editing them — the shell has to be restarted to compile them
+# again.
+set -euo pipefail
+
+here="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+target="${XDG_CONFIG_HOME:-$HOME/.config}/omarchy/plugins/io.github.guranex.media-lyrics"
+
+mkdir -p "$target"
+cp -a "$here/." "$target/"
+echo "synced $here -> $target"
+
+if command -v omarchy >/dev/null 2>&1; then
+  omarchy restart shell
+  echo "restarted the shell"
+fi

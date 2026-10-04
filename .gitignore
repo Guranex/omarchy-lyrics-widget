@@ -1,0 +1,6 @@
+# Nothing here is generated; the only files worth ignoring are editor and
+# scratch leftovers.
+*.bak
+*.bak.*
+.DS_Store
+*~
