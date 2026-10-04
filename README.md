@@ -25,6 +25,42 @@ For local development, point Omarchy at a checkout by copying it into
 scripts/dev-install        # sync this checkout into the plugin dir and reload
 ```
 
+## Uninstall
+
+```bash
+omarchy plugin remove io.github.guranex.media-lyrics
+```
+
+That deletes the plugin directory, which is where all of its code, its lyrics
+helper and its licence live. Nothing outside it is touched.
+
+Two things survive on purpose:
+
+- **Your settings** live on this plugin's entry in `~/.config/omarchy/shell.json`
+  and are removed along with the entry. Nothing else in that file is rewritten.
+- **Cached cover art** stays in `~/.cache/omarchy-media-lyrics/`; delete the
+  directory if you want it gone.
+
+Removing the plugin also removes its bar entry. Re-adding starts from the
+defaults.
+
+## Requirements
+
+| | |
+|---|---|
+| **Omarchy 4.0 "Quattro" or newer** | The plugin API and the Quickshell-based bar |
+| A **media player that speaks MPRIS** | Spotify, mpv with `mpv-mpris`, most browsers. With nothing playing the card shows its placeholder state |
+| **`python3`** | The lyrics helper is a Python script. Ships with Omarchy |
+| **`curl`** | Cover-art download. Ships with Omarchy |
+| **Network access to [lrclib.net](https://lrclib.net)** | Lyrics. Only the track's title, artist and duration are sent, as query parameters — no account, no API key, nothing else. A song that cannot be matched simply reports "not found" |
+| A **Nerd Font** | Omarchy's own bar font supplies the icons. Material Symbols is used instead if you have it installed and pick that in the popup |
+
+The plugin reads MPRIS metadata, writes its own settings entry, downloads cover
+art into `~/.cache/omarchy-media-lyrics/`, and runs two commands of its own:
+`python3 scripts/lyrics/lyrics.py …` and `bash -c '… curl …'`. It never
+requests privileges, never writes outside those two locations, and registers no
+global IPC names beyond its own `mediaLyrics` and `media-lyrics-bar` targets.
+
 ## Using it
 
 **The bar icon.** Left-click opens the settings popup; right-click shows or hides
